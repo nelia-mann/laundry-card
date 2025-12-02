@@ -5,7 +5,7 @@ class LaundryCard extends HTMLElement {
     _elements = {};
     _devices = [];
     _entities = {};
-    _path = "/local/dist/laundry-card/images/"
+    _path = "/local/community/laundry-card/images/"
 
     constructor() {
         super();
