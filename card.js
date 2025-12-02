@@ -51,8 +51,7 @@ class LaundryCard extends HTMLElement {
             this._entities[device].current_status =
                 "sensor." + this._config[device] + "_current_status";
             this._entities[device].operation =
-                "input_select." + "select_" + this._config[device] + "_operation";
-
+                "select." + this._config[device] + ".operation";
         })
     }
 
