@@ -17,11 +17,11 @@
 
 ## Assumed entities
 
-- sensor.<device>._remaining_time
-- sensor.<device>._current_status
-- select.<device>.operation
+- sensor.device._remaining_time
+- sensor.device._current_status
+- select.device.operation
 
-In these lines, <device> must be the entity id (not ideal!)
+In these lines, device must be the entity id (not ideal!)
 
 ## Behaviors
 
