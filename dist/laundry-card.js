@@ -323,7 +323,7 @@ class LaundryCard extends HTMLElement {
         return () => {
             const status = this.getMachineSimpleStatus(device);
             const entityId = this._entities[device].operation;
-            const data = { entity: entityId };
+            const data = { entity_id: entityId };
             if (status === "on") {
                 data.option = "stop";
             } else if (status === "paused") {
@@ -336,7 +336,7 @@ class LaundryCard extends HTMLElement {
     doToggle(device) {
         return () => {
             const entityId = this._entities[device].operation;
-            const data = { entity: entityId, option: "power_off" };
+            const data = { entity_id: entityId, option: "power_off" };
             this._hass.callService('select', 'select_option', data);
         }
     }
