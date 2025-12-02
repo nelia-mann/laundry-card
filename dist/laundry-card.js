@@ -5,7 +5,7 @@ class LaundryCard extends HTMLElement {
     _elements = {};
     _devices = [];
     _entities = {};
-    _path = "/local/tutor/laundry-card/images/"
+    _path = "/local/dist/laundry-card/images/"
 
     constructor() {
         super();
@@ -328,7 +328,7 @@ class LaundryCard extends HTMLElement {
             } else if (status === "paused") {
                 data.option = "start";
             }
-            this._hass.callService('input_select', 'select_option', data);
+            this._hass.callService('select', 'select_option', data);
         };
     }
 
