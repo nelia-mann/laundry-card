@@ -355,10 +355,10 @@ class LaundryCard extends HTMLElement {
 
     getGridOptions() {
         return {
-            rows: 3,
+            rows: 4,
             columns: 9,
-            min_rows: 3,
-            max_rows: 3
+            min_rows: 4,
+            max_rows: 4
         }
     }
 
