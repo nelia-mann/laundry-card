@@ -208,11 +208,11 @@ class LaundryCard extends HTMLElement {
             setInterval(this.updateTimeDisplay(device), 1000);
             let src = this.getImageSrc(device);
             this._elements[device].image.setAttribute("src", src);
-            const status = this.getMachineStatus(device);
-            if ((status === "power-off") || (status === "end")) {
+            const status = this.getMachineSimpleStatus(device);
+            if ((status === "off") || (status === "unknown")) {
                 this._elements[device].button.remove();
                 this._elements[device].toggle.remove();
-            } else if (status === "pause") {
+            } else if (status === "paused") {
                 this._elements[device].button.classList.remove("on");
                 this._elements[device].button.classList.add("off");
                 this._elements[device].button.textContent = "resume";
@@ -242,10 +242,8 @@ class LaundryCard extends HTMLElement {
     getRemainingTime(device) {
         const entityId = this._entities[device].remaining_time;
         const timeState = this._hass.states[entityId].state;
-        console.log(timeState);
-        const status = this.getMachineSimpleStatus(device);
         let message = "";
-        if (!(status === "off")) {
+        if (!(timeState === "unknown")) {
             let remaining = Date.parse(timeState) - Date.now();
             const hours = Math.floor(remaining / 3600000)
             remaining = remaining - hours * 3600000;
