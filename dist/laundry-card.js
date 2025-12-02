@@ -47,11 +47,11 @@ class LaundryCard extends HTMLElement {
         this._devices.forEach((device) => {
             this._entities[device] = {};
             this._entities[device].remaining_time =
-                "sensor." + this._config[device] + "_remaining_time";
+                "sensor." + device + "_remaining_time";
             this._entities[device].current_status =
-                "sensor." + this._config[device] + "_current_status";
+                "sensor." + device + "_current_status";
             this._entities[device].operation =
-                "select." + this._config[device] + ".operation";
+                "select." + device + ".operation";
         })
     }
 
@@ -336,7 +336,7 @@ class LaundryCard extends HTMLElement {
         return () => {
             const entityId = this._entities[device].operation;
             const data = { entity_id: entityId, option: "power_off" };
-            this._hass.callService('input_select', 'select_option', data);
+            this._hass.callService('select', 'select_option', data);
         }
     }
 
