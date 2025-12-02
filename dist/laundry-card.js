@@ -242,8 +242,10 @@ class LaundryCard extends HTMLElement {
     getRemainingTime(device) {
         const entityId = this._entities[device].remaining_time;
         const timeState = this._hass.states[entityId].state;
+        console.log(timeState);
+        const status = this.getMachineSimpleStatus(device);
         let message = "";
-        if (timeState) {
+        if (!(status === "off")) {
             let remaining = Date.parse(timeState) - Date.now();
             const hours = Math.floor(remaining / 3600000)
             remaining = remaining - hours * 3600000;
